@@ -1,0 +1,40 @@
+@import "./_mixins.scss";
+@import "./_colors.scss";
+@import "./_fonts.scss";
+
+@import "./_mixins.scss";
+@import "./_colors.scss";
+@import "./_fonts.scss";
+
+.modal{position: fixed; top:0; right:0; bottom:0; left:0; background-color: rgba($dark-blue, 0.5); display: grid; place-items: center; cursor: pointer; z-index: 999; transition: opacity 0.6s; will-change: opacity; opacity: 0; pointer-events: none;
+   .modal__content{background-color: white; width: 100%; max-width: 400px; padding: 24px; border-radius: 8px; cursor: default; transition: opacity 0.6s, transform 0.6s ease-out; will-change: opacity, transform; transform: translate3d(0, 5px, 0); opacity: 0; transition-delay: 0s;
+        label{@include font(2.4, 28.44, 0, $dark-blue, 500);}
+        p{@include font(1.6, 24, 0); margin: 20px 0;}
+        .modal__cta{display: flex; align-items: center; justify-content: space-between; gap:14px;
+            button{@include font(1.6, 24, 0, white, 500); transition: opacity 0.2s; border-radius: 8px; padding: 12px 34px; cursor: pointer;
+                &.cancel{background-color: $grayish-Blue;}
+                &.delete{background-color: $soft-Red;}
+                &:hover{opacity: 0.5;}
+            }
+        }    
+    }
+    &.active{opacity: 1; pointer-events: all;
+        .modal__content{transform: translate3d(0, 0, 0); opacity: 1; transition-delay: 0.2s;}
+    }
+    @include mq(640){
+        .modal__content{max-width: 92vw;
+            label{font-size: 2rem;}
+            .modal__cta{
+                button{padding: 12px 20px;}
+            }
+        }
+    }
+
+    @include mq(365){
+        .modal__content{          
+            .modal__cta{
+                button{padding: 12px 10px;}
+            }
+        }
+    }
+}

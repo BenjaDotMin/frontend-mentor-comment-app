@@ -1,0 +1,22 @@
+@import "./_mixins";
+@import "./_colors.scss";
+@import "./_fonts.scss";
+
+.score{flex: 0 0 40px; display: grid; grid-template-rows: 33px 36px 1fr; height: 100px; padding:0 0 4px 1px; background-color: $very-light-gray; border-radius: 10px;
+    button{height: 100%; width: 100%;
+        svg{margin: 0 auto;
+            path{fill:$light-grayish-blue; transition: fill 0.2s;} will-change: fill;           
+        }
+        &:hover{
+            svg{
+                path{fill: $moderate-blue;}
+            }
+        }
+    }
+    input{border:none; background-color: transparent; padding: 0; width: 100%; @include font(1.6, 18.96, 0, $moderate-blue, 500); text-align: center;
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+        &[type="number"] {-moz-appearance: textfield;} 
+        &:focus-visible{outline: none;}
+    }
+    @include mq(640){position: absolute; bottom: 16px; left:16px; display: flex; height: 40px; width: 100px; padding-bottom: 0;}
+}

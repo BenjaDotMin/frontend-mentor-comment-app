@@ -1,0 +1,21 @@
+@import "./_mixins.scss";
+@import "./_colors.scss";
+@import "./_fonts.scss";
+
+.add-comment{display: flex; gap:16px; background-color: white; border-radius: 8px; padding:24px; align-items: flex-start; margin-top: -4px; order: 99999;
+    img{width: 40px; margin-top: 4px;}
+    p{border:1px solid $light-gray; border-radius: 8px; min-height: 96px; background-color: white; flex:1; padding: 11px 23px; @include font(1.6, 24, 0, $dark-blue); resize: none; transition: border 0.2s; caret-color: $moderate-blue;
+        span{color:$moderate-blue; font-weight: 500;}
+        i{font-style: normal; word-break: break-word;}
+        &:focus-visible{outline: none; border:1px solid $moderate-blue;}
+        &:empty:not(:focus)::before{content: attr(data-placeholder); @include font(1.6, 24, 0); pointer-events: none;}
+    }   
+    button{background-color: $moderate-blue; border-radius: 8px; width: 104px; height: 48px; display: flex; justify-content: center; @include font(1.6, 24, 0, white, 500); transition: opacity 0.2s; will-change: opacity;
+        &:hover{opacity: 0.5;}
+    }
+    @include mq(640){position: relative; padding:16px 16px 80px;
+        img, button{position: absolute;}
+        img{width: 34px; margin-top: 0px; left:16px;  bottom:22px;}
+        button{right:16px;  bottom:16px; }
+    }
+}
